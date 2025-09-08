@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceroute Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .container {
+            width: 70%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        /* Main heading or logo at the top */
+        .header {
+            text-align: center;
+            background-color: #4caf50;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .header img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 50%;
+            margin-right: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-family: monospace;
+            font-size: 14px;
+            color: #333;
+            background-color: #fff;
+            resize: none;
+        }
+
+        .output-section {
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            color: #4CAF50;
+        }
+
+        .warning {
+            color: red;
+            font-weight: bold;
+        }
+
+        .info {
+            color: #008CBA;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="/static/images/Traceroute_Logo.png" alt="Traceroute Analyzer Logo">
+        <h1>Traceroute Analyzer</h1>
+    </div>
+    <div class="container">
+        <h1>Traceroute Analyzer</h1>
+
+        <!-- Form for entering target -->
+      
+        <form method="POST" action="{{ url_for('traceroute') }}">
+             <input type="text" name="target" value="{{ target }}" placeholder="Enter IP or domain (e.g., 8.8.8.8)" required>
+            <button type="submit">Run Traceroute</button>
+        </form>
+        
+        <!-- Add a button to trigger visualization -->
+        <form method="GET" action="{{ url_for('visualize') }}">
+               <button type="submit" class="btn btn-primary">Visualize Traceroute</button>
+        </form>
+
+        
+        <!-- Output section for raw traceroute -->
+        <div class="output-section">
+            <h3>Traceroute Output</h3>
+            <textarea rows="15" readonly>{{ traceroute_output }}</textarea>
+        </div>
+
+        <!-- Output section for comparison with previous traceroutes -->
+        <div class="output-section">
+            <h3>Comparison with Previous Traceroute</h3>
+            <textarea rows="10" readonly>{{ comparison_output }}</textarea>
+        </div>
+        <!-- Show warnings if any -->
+         <!--
+        {% if traceroute_output.startswith('⚠️') %}
+            <p class="warning">{{ traceroute_output }}</p>
+        {% endif %}
+        -->
+        {% if traceroute_output %}
+           <div class="alert alert-info">
+               {{ traceroute_output }}
+           </div>
+        {% endif %}
+
+    
+        <!-- Show information if comparison output is available -->
+        {% if comparison_output %}
+            <p class="info">{{ comparison_output }}</p>
+        {% endif %}
+
+        <!-- Display the generated traceroute graph -->
+        {% if graph_url %}
+             <h3>Traceroute Visualization in a Graph</h3>
+             <img src="{{ graph_url }}" alt="Traceroute Graph" style="max-width: 100%; height: auto;">
+        {% else %}
+            <p>No Traceroute Graph available. Please run visualization.</p>
+            <p>Trace Route should be run before running Visualizer</p>
+        {% endif %}
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Traceroute Analyzer | Developed by Vamsi Adi</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+# Just run and save
+python main.py --target 8.8.8.8
+
+# Run, save, and compare with previous
+python main.py --target 8.8.8.8 --compare
+
+# Run, save, and visualize
+python main.py --target 8.8.8.8 --visualize
+
+# Do everything
+python main.py -t 8.8.8.8 -c -v
