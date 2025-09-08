@@ -46,7 +46,56 @@ cd traceroute-analyzer
 
 pip install -r requirements.txt
 
-**4.Running the Application:**
+## File Structure:
+The project’s file structure is organized as follows:
+
+tracertoute-analyzer/
+├── .github/
+│   └── workflows/
+│       └── <ci_workflow>.yml
+│
+├── docs/
+│   ├── images/
+│   │   └── <doc_image>.png
+│   ├── tutorials/
+│   │   └── <tutorial_doc>.md
+│   └── <doc_file>.md
+│
+├── logs/
+│   └── app.log
+│
+├── src/
+│   ├── __pycache__/
+│   ├── static/
+│   │   └── tracertoute_graph.png
+│   ├── templates/
+│   │   └── index.html
+│   ├── tests/
+│   │   ├── __init__.py
+│   │   ├── test_compare_utils.py
+│   │   ├── test_history_utils.py
+│   │   └── test_parser.py
+│   ├── app.py
+│   ├── compare_utils.py
+│   ├── history_utils.py
+│   ├── logger_utils.py
+│   ├── main.py
+│   ├── parser.py
+│   └── visualize.py
+│
+├── .gitignore
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── Tips/
+    ├── CLI_Usage_Tips.txt
+    └── UnitTests_Performing_Tips.txt
+
+
+Brief project structure in short:
+<img width="980" height="630" alt="image" src="https://github.com/user-attachments/assets/1499ac9f-4340-4f49-b02e-01f5b7227306" />
+
+**Running the Application:**
 
 Run the Flask application:
 
