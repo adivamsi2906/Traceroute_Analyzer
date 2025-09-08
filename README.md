@@ -50,8 +50,9 @@ pip install -r requirements.txt
 The project’s file structure is organized as follows:
 
 <img width="394" height="664" alt="image" src="https://github.com/user-attachments/assets/0f044f92-0165-491d-a483-bb739c398133" />
-
-
+                 |
+                 |
+                 |
 Brief project structure in short with the files usage:
 <img width="980" height="630" alt="image" src="https://github.com/user-attachments/assets/1499ac9f-4340-4f49-b02e-01f5b7227306" />
 
