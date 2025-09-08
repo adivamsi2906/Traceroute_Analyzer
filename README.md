@@ -37,16 +37,16 @@
    ```bash
    git clone https://github.com/your-username/traceroute-analyzer.git
 
-Navigate to the project directory:
+2.Navigate to the project directory:
 
 cd traceroute-analyzer
 
 
-Install the required dependencies using pip:
+3.Install the required dependencies using pip:
 
 pip install -r requirements.txt
 
-Running the Application:
+**4.Running the Application:**
 
 Run the Flask application:
 
@@ -56,20 +56,20 @@ python app.py
 Open your browser and visit http://localhost:5000
  to start using the tool.
 
-Features in Detail:
-Traceroute Execution:
+**Features in Detail:**
+**Traceroute Execution:**
 
 Execute traceroutes to any target IP address or domain (e.g., 8.8.8.8).
 
 View hop-by-hop details, including IP addresses and RTTs.
 
-Path History:
+**Path History:**
 
 Automatically saves past traceroutes in a JSON format.
 
 Compare the most recent traceroute with previous results to detect network changes.
 
-Comparison & Reporting:
+**Comparison & Reporting:**
 
 Identify if an IP has changed between traceroutes.
 
@@ -77,13 +77,13 @@ Detect missing or new hops in the path.
 
 Get detailed logs and reports of the comparison results.
 
-Visualization:
+**Visualization:**
 
 A graphical representation of the traceroute path is generated using NetworkX and Matplotlib.
 
 View the traceroute as an interactive graph for better analysis.
 
-Requirements:
+**Requirements:**
 
 Python 3.x
 
@@ -95,7 +95,7 @@ Matplotlib: Plotting library to visualize traceroute paths.
 
 Gunicorn: WSGI HTTP Server (for production use, optional).
 
-Testing:
+**Testing:**
 
 This project includes unit tests to validate the traceroute comparison and history loading functionality.
 
@@ -103,18 +103,18 @@ To run the tests:
 
 python -m unittest discover
 
-License:
+**License:**
 
-This project is licensed under the MIT License - see the LICENSE
+This project is licensed under the **MIT License** - see the LICENSE
  file for details.
 
-Acknowledgments:
+**Acknowledgments:**
 
 This project was developed as part of a personal and technical learning project for learning core networking concepts, network troubleshooting and performance monitoring.
 
 Libraries and tools used: Flask, NetworkX, Matplotlib, and Python's standard libraries.
 
-Additional Resources:
+**Additional Resources:**
 
 Traceroute Wikipedia
  - Learn more about how traceroute works.
